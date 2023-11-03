@@ -1,11 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { removeUser } from '../actions/usersAction'
 
-export default function Table() {
+export default function Table(props) {
     const dispatch = useDispatch()
-    const users = useSelector((state) => {
-        return state.users 
-    })
+    const { users } = props 
 
     const handleRemove = (id) => {
         const input = window.confirm("Are you sure?")
@@ -40,7 +38,7 @@ export default function Table() {
 }
 
 /*
-    1. create event handler for onClick
+    1. create event handler for button
     2. pass the id as an argument to handleRemove
     3. inside handleRemove ask the user if he wants to remove using the confirm method
     4. if the user says yes, then dispatch to the reducer
