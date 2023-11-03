@@ -7,6 +7,7 @@ export default function Form(){
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
+            id: Number(new Date()),
             name: name 
         }
         const resetForm = () => {
@@ -24,3 +25,4 @@ export default function Form(){
         </div>
     )
 }
+
