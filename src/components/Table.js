@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { removeUser } from '../actions/usersAction'
+import { removeUser, setUserId } from '../actions/usersAction'
 
 export default function Table(props) {
     const dispatch = useDispatch()
@@ -11,6 +11,11 @@ export default function Table(props) {
             dispatch(removeUser(id))
         }
     }
+
+    const handleEdit = (id) => {
+        dispatch(setUserId(id))
+    }
+
     return (
         <table>
             <thead>
@@ -26,9 +31,17 @@ export default function Table(props) {
                     <tr key={i}>
                         <td>{ele.name}</td>
                         <td>{ele.gender}</td>
-                        <td><button onClick={() => {
+                        <td>
+
+                        <button onClick={() => {
+                            handleEdit(ele.id)
+                        }}>edit</button>
+                        
+                        <button onClick={() => {
                             handleRemove(ele.id)
-                        }}>x</button></td>
+                        }}>x</button>
+                        
+                        </td>
                     </tr>
                 )
             })}

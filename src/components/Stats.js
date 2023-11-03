@@ -1,4 +1,4 @@
-// npm install react-chartkick chart.js
+// npm install react-chartkick chart.js --force
 import { PieChart } from 'react-chartkick'
 import 'chartkick/chart.js'
 import { useSelector } from 'react-redux'
